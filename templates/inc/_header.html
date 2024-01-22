@@ -1,0 +1,38 @@
+{% load static %}
+<header id="header_main" class="header_1 js-header">
+    <div class="themes-container ">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="site-header-inner">
+                    <div class="wrap-box relative">
+                        <div id="site-logo" class="clearfix">
+                            <div id="site-logo-inner">
+                                <a href="{% url 'portfolio:home' %}" rel="home" class="main-logo">
+                                    <img id="logo_header" src="{% static 'assets/images/logo/logo.png' %}"
+                                         alt="img"
+                                         width="155" height="46">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mobile-button"><span></span></div><!-- /.mobile-button -->
+                        <nav id="main-nav" class="main-nav">
+                            <ul id="menu-primary-menu" class="menu">
+                                {% for m_item in menu_items %}
+                                <li class="menu-item">
+                                    <a data-scroll href="{{ m_item.url }}">{{ m_item.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </nav><!-- /#main-nav -->
+                        <div class="flat-button-top">
+                            <div class="sc-btn-top" id="site-header">
+                                <a data-scroll href="/#contact" class="btn-action"><span>Мои контакты</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>

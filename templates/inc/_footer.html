@@ -1,0 +1,85 @@
+{% load static %}
+<!-- Footer -->
+<footer id="footer" class="clearfix page">
+    <div class="themes-container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="widget widget-logo">
+                    <div class="flat-box">
+                        <div class="logo-footer style" id="logo-footer">
+                            <a href="{% url 'portfolio:home' %}">
+                                <img id="logo_footer" src="{% static 'assets/images/logo/logo-footer.png' %}"
+                                     alt="img"
+                                     width="152" height="45">
+                            </a>
+                        </div>
+                        <p class="sub-widget-logo">Web-Разработка(Backend).</p>
+                        <p>На фреймворке Django(Python), CMS WordPress и фреймворке Laravel(PHP).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="widget widget-menu style-2">
+                    <h4 class="title-widget">Контакты</h4>
+                    <p class="text-style2">Всегда готов к сотрудничеству</p>
+                    <p><a class="email" href="info:stasvnikitin@mail.ru">stasvnikitin@mail.ru</a></p>
+                    <p>+7 (916) 925-56-59</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="widget widget-menu style-3">
+                    <h4 class="title-widget">Стоимость работ:</h4>
+                    <p>Бакенд разработка  от 1000руб/час.<br>
+                        Шаблон в WordPress от 5000руб.<br>
+                        Плагин для WordPress от 1000руб/час</p>
+
+
+                    <!--<div class="widget-subcribe ">
+                        <div class="form-subcribe">
+                            <form id="subscribe-form" action="#" method="GET" accept-charset="utf-8"
+                                  class="form-submit">
+                                <input name="text" value="" class="text" type="text"
+                                       placeholder="Subscribe Our newsletter" required="">
+                                <button id="submit" name="submit" type="submit" class="btn-1 btn-8">
+                                    <span><i class="fal fa-long-arrow-right"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- /#footer -->
+
+<div class="widget-social-footer">
+    <div class="themes-container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <p class="title-bottom"> © 2023-</script><script>document.write(new Date().getFullYear());</script> <a href="https://github.com/StanislavVNikitin">Stanislav
+                    Nikitin</a>
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="wrap-list">
+                    <ul class="text-color-1 flex">
+                        {% for m_item in menu_items %}
+                            <li><h5><a href="{{ m_item.url }}">{{ m_item.name }}</a></h5></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="icon-bottom text-color-1">
+                    {% if site_settings.social_net_link.all.count > 0 %}
+                        {% for socialnetwork in site_settings.social_net_link.all %}
+                            <a href="{{socialnetwork.url}}"><i class="fab {{socialnetwork.social_net}} fa-lg"></i></a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

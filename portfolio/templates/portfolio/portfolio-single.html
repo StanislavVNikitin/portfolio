@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="post">
+    <div class="heading-post center">
+        <h6 class="text-u text-color-3 ls-01">Portfolio</h6>
+        <h2 class="text-t">{{portfolio.title}}</h2>
+    </div>
+    <div class="image-one">
+        <img src="{{portfolio.photo.url}}" alt="">
+    </div>
+    <div class="box-text style-1">
+        <p class="text-one p-18">{{portfolio.content}}</p>
+    </div>
+</div>
+
+
+{% endblock %}

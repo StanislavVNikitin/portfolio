@@ -1,0 +1,367 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- slider -->
+<section id="home" class="slider home home2 show-boder">
+    <div class="swiper-container mainslider show-boder">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slider-item">
+                    <div class="flat-slider">
+                        <div class="themes-container flex-one">
+                            <div class="content">
+                                <div class="heading">
+                                    <h5 class="text-u ls-01 text-color-3">Портфолио</h5>
+                                    <h1>Станислав Никитин</h1>
+                                    <h2>Веб-разработчик</h2>
+                                    <p>Я предлагаю услуги веб-разработки: Backend - Python, Django, PHP,
+                                        Laravel, WordPress, (Frontend - HTML-JS), 1C</p>
+                                    <p>Опыт в ИТ более 20-летний, в веб-разработке с 2018 года.</p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="" src="{% static 'assets/images/slider/slider-author.png' %}"
+                                     alt="">
+                                <img class="mark-1 animate-zoom"
+                                     src="{% static 'assets/images/slider/mark-1.png' %}" alt="">
+                                <img class="mark-2" src="{% static 'assets/images/slider/mark-2.png' %}" alt="">
+                                <div class="icon-slider">
+                                    <svg width="40" height="35" viewBox="0 0 40 35" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M39.5729 8.73922C39.3253 8.15592 38.8301 7.66984 38.2358 7.4268L20.9024 0.184231C20.2585 -0.0588063 19.5652 -0.0588063 18.9214 0.184231L1.58795 7.47541C0.300325 8.01009 -0.293965 9.46833 0.250801 10.7321C0.498421 11.3154 0.993663 11.8015 1.58795 12.0446L18.9214 19.2871C19.5652 19.5302 20.2585 19.5302 20.9024 19.2871L38.2358 11.9959C39.5234 11.4613 40.1177 10.003 39.5729 8.73922Z"
+                                              fill="white"/>
+                                        <path d="M39.8708 23.4175C39.4251 22.1051 37.9889 21.376 36.6517 21.8135C36.5032 21.8621 36.3546 21.9107 36.206 22.0079L19.863 28.813L3.52009 22.0079C2.23246 21.4732 0.746738 22.0565 0.201972 23.3203C-0.342793 24.5841 0.251497 26.0423 1.53912 26.577L18.8726 33.8196C19.5164 34.0626 20.2097 34.0626 20.8535 33.8196L38.187 26.5284C39.5737 26.1396 40.3165 24.73 39.8708 23.4175Z"
+                                              fill="white"/>
+                                        <path d="M39.573 16.0786C39.0282 14.7661 37.5425 14.1828 36.2548 14.7175L19.9119 21.5712L3.56892 14.7175C2.28129 14.1828 0.795566 14.7661 0.250801 16.0299C-0.293965 17.2937 0.300325 18.752 1.58795 19.2867L18.9214 26.5778C19.5652 26.8209 20.2585 26.8209 20.9024 26.5778L38.2358 19.3353C39.5234 18.8006 40.1177 17.3423 39.573 16.0786Z"
+                                              fill="white"/>
+                                    </svg>
+                                </div>
+                                <div class="info">
+                                    <div class="info-author flex">
+                                        <div class="title-author text-color-1">
+                                            <h5>Stanislav Nikitin</h5>
+                                            <div class="texts">Moscow, RUS</div>
+                                        </div>
+                                        <div class="mark-dots absolute">...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="flat-portflio tf-section home2 home3">
+    <div class="themes-container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="flat-tabs themesflat-tabs">
+                    <div class="box-tab flex-one">
+                        <h2 class="text-color-1">Мои лучшие проекты: </h2>
+                    </div>
+
+                    <div class="content-tab">
+                        <div class="content-inner tab-content ">
+                            <div class="wrap-portflio flex">
+                                {% if portfolio %}
+                                {% for item in portfolio %}
+                                <div class="box-portflio hover-img">
+                                    <div class="image img-style">
+                                        <img class="img-item"
+                                             src="{{item.photo.url}}" alt="">
+                                    </div>
+                                    <div class="post">
+                                        <a href="{{item.get_absolute_url}}"><h4>{{item.title}}</h4></a>
+                                        <p>{{item.description}}</p>
+                                        <div class="sc-btn-button">
+                                            <a href="{{item.project_url}}"
+                                               class="sc-button btn-2"><span>Проект</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sc-btn-top center">
+            <a href="{% url 'portfolio:portfoliolist' %}" class="btn-action btn-style btn-4"><span>Портфолио</span></a>
+        </div>
+    </div>
+</section>
+
+<section id="price" class="tf-section2 flat-faq">
+    <div class="themes-container pt-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="wrap-faq">
+                    <div class="heading-section">
+                        <h5>Прайс</h5>
+                    </div>
+
+                    <div class="row d-flex align-items-center pb-3">
+                        <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2">
+                            <img class="rounded float-right"
+                                 src="{% static 'assets/images/horizontal -section-pricing.png' %}">
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="wrap-icon">
+                                {% if price %}
+                                    {% for category_price in price %}
+                                <div class="box price-box">
+                                    <div class="inner flex-three">
+                                        <h3><a>{{category_price.title}}</a></h3>
+                                    </div>
+                                        {% for price_item in category_price.price.all %}
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <p class="p-18">{{price_item.name}}</p>
+                                                </div>
+                                                <div class="col-4">
+                                                    <p class="p-18">{{price_item.price}}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="sc-btn-top center">
+            <a href="#contact" class="btn-action btn-style "><span>Заказать</span></a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="tf-section2 flat-about home2 ">
+    <div class="themes-container pt-4">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="wrap-about flex">
+                    <div class="heading">
+                        <div class="heading-section">
+                            <h5>Направления работы</h5>
+                            <h2>Backend-разработка</h2>
+                            <p class="p-18">Я специализируюсь на бэкенд разработке на движках CMS WordPress и
+                                фреймворках Django(Python), Laravel(PHP).</p>
+                        </div>
+                        <div class="sc-btn-about ">
+                            <a href="#contact" class="btn-action btn-style "><span>Связаться</span></a>
+                        </div>
+                    </div>
+
+                    <div class="image">
+                        <img src="{% static 'assets/images/img-box/about-2.jpg' %}" alt="">
+                    </div>
+                    <div class="wrap-icon">
+                        <div class="box">
+                            <div class="inner flex-three">
+                                <div class="icon style-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22"
+                                         viewBox="0 0 448 512">
+                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                        <path fill="#ffffff"
+                                              d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                                    </svg>
+                                </div>
+                                <h3><a>Django(Python)</a></h3>
+                            </div>
+                            <p class="p-18">На фреймворках Django, создам сайт, блог, интернет магазин с
+                                необходимой бизнес логикой.</p>
+                        </div>
+                        <div class="box">
+                            <div class="inner flex-three">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+                                         viewBox="0 0 512 512">
+                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                        <path fill="#ffffff"
+                                              d="M61.7 169.4l101.5 278C92.2 413 43.3 340.2 43.3 256c0-30.9 6.6-60.1 18.4-86.6zm337.9 75.9c0-26.3-9.4-44.5-17.5-58.7-10.8-17.5-20.9-32.4-20.9-49.9 0-19.6 14.8-37.8 35.7-37.8 .9 0 1.8 .1 2.8 .2-37.9-34.7-88.3-55.9-143.7-55.9-74.3 0-139.7 38.1-177.8 95.9 5 .2 9.7 .3 13.7 .3 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l77.5 230.4L249.8 247l-33.1-90.8c-11.5-.7-22.3-2-22.3-2-11.5-.7-10.1-18.2 1.3-17.5 0 0 35.1 2.7 56 2.7 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l76.9 228.7 21.2-70.9c9-29.4 16-50.5 16-68.7zm-139.9 29.3l-63.8 185.5c19.1 5.6 39.2 8.7 60.1 8.7 24.8 0 48.5-4.3 70.6-12.1-.6-.9-1.1-1.9-1.5-2.9l-65.4-179.2zm183-120.7c.9 6.8 1.4 14 1.4 21.9 0 21.6-4 45.8-16.2 76.2l-65 187.9C426.2 403 468.7 334.5 468.7 256c0-37-9.4-71.8-26-102.1zM504 256c0 136.8-111.3 248-248 248C119.2 504 8 392.7 8 256 8 119.2 119.2 8 256 8c136.7 0 248 111.2 248 248zm-11.4 0c0-130.5-106.2-236.6-236.6-236.6C125.5 19.4 19.4 125.5 19.4 256S125.6 492.6 256 492.6c130.5 0 236.6-106.1 236.6-236.6z"/>
+                                    </svg>
+                                </div>
+                                <h3><a>WordPress</a></h3>
+                            </div>
+                            <p class="p-18">Я могу на основе шаблона в CMS WordPress сделать настраиваемую тему.
+                                Разработать необходимый плагин.</p>
+                        </div>
+                        <div class="box">
+                            <div class="inner flex-three">
+                                <div class="icon style-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+                                         viewBox="0 0 512 512">
+                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                        <path fill="#ffffff"
+                                              d="M504.4 115.8a5.7 5.7 0 0 0 -.3-.7 8.5 8.5 0 0 0 -.5-1.3 6 6 0 0 0 -.5-.7 9.4 9.4 0 0 0 -.7-.9c-.2-.2-.5-.4-.8-.6a8.8 8.8 0 0 0 -.9-.7L404.4 55.6a8 8 0 0 0 -8 0L300.1 111h0a8.1 8.1 0 0 0 -.9 .7 7.7 7.7 0 0 0 -.8 .6 8.2 8.2 0 0 0 -.7 .9c-.2 .2-.4 .5-.5 .7a9.7 9.7 0 0 0 -.5 1.3c-.1 .2-.2 .4-.3 .7a8.1 8.1 0 0 0 -.3 2.1V223.2l-80.2 46.2V63.4a7.8 7.8 0 0 0 -.3-2.1c-.1-.2-.2-.5-.3-.7a8.4 8.4 0 0 0 -.5-1.2c-.1-.3-.4-.5-.5-.7a9.4 9.4 0 0 0 -.7-.9 9.5 9.5 0 0 0 -.8-.6 9.8 9.8 0 0 0 -.9-.7h0L115.6 1.1a8 8 0 0 0 -8 0L11.3 56.5h0a6.5 6.5 0 0 0 -.9 .7 7.8 7.8 0 0 0 -.8 .6 8.2 8.2 0 0 0 -.7 .9c-.2 .3-.4 .5-.6 .7a7.9 7.9 0 0 0 -.5 1.2 6.5 6.5 0 0 0 -.3 .7 8.2 8.2 0 0 0 -.3 2.1v329.7a8 8 0 0 0 4 7l192.5 110.8a8.8 8.8 0 0 0 1.3 .5c.2 .1 .4 .2 .6 .3a7.9 7.9 0 0 0 4.1 0c.2-.1 .4-.2 .6-.2a8.6 8.6 0 0 0 1.4-.6L404.4 400.1a8 8 0 0 0 4-7V287.9l92.2-53.1a8 8 0 0 0 4-7V117.9A8.6 8.6 0 0 0 504.4 115.8zM111.6 17.3h0l80.2 46.2-80.2 46.2L31.4 63.4zm88.3 60V278.6l-46.5 26.8-33.7 19.4V123.5l46.5-26.8zm0 412.8L23.4 388.5V77.3L57.1 96.7l46.5 26.8V338.7a6.9 6.9 0 0 0 .1 .9 8 8 0 0 0 .2 1.2h0a5.9 5.9 0 0 0 .4 .9 6.4 6.4 0 0 0 .4 1v0a8.5 8.5 0 0 0 .6 .8 7.6 7.6 0 0 0 .7 .8l0 0c.2 .2 .5 .4 .8 .6a8.9 8.9 0 0 0 .9 .7l0 0 0 0 92.2 52.2zm8-106.2-80.1-45.3 84.1-48.4 92.3-53.1 80.1 46.1-58.8 33.6zm184.5 4.6L215.9 490.1V397.8L346.6 323.2l45.8-26.2zm0-119.1L358.7 250l-46.5-26.8V131.8l33.7 19.4L392.4 178zm8-105.3-80.2-46.2 80.2-46.2 80.2 46.2zm8 105.3V178L455 151.2l33.7-19.4v91.4h0z"/>
+                                    </svg>
+                                </div>
+                                <h3><a>Laravel(PHP)</a></h3>
+                            </div>
+                            <p class="p-18">Разработка бизнес логики на фреймворке Laravel с использование
+                                PHP.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section id="blog" class="tf-section2 flat-blog-post home2">
+    <div class="themes-container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="heading-section center">
+                    <h5>Blog</h5>
+                    <h2 class="title-section"> Latest Posts</h2>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="wrap-post hover-img">
+                    <div class="images img-style">
+                        <img src="assets/images/img-box/news-1.jpg" alt="img">
+                    </div>
+                    <div class="content">
+                        <div class="sub-title text-p">01 June , 2022</div>
+                        <h4 class="text-t link-style-3"><a href="blog-details.html">different parameters like
+                            radius, orientation, opacity or color points.</a></h4>
+                        <h6 class="meta "> By <a href="#" class="user"> Admin </a> <a href="#" class="">0
+                            Comments</a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="wrap-post hover-img">
+                    <div class="images img-style">
+                        <img src="assets/images/img-box/news-2.jpg" alt="img">
+                    </div>
+                    <div class="content">
+                        <div class="sub-title text-p">01 June , 2022</div>
+                        <h4 class="text-t link-style-3"><a href="blog-details.html">different parameters like
+                            radius, orientation, opacity or color points.</a></h4>
+                        <h6 class="meta "> By <a href="#" class="user"> Admin </a> <a href="#" class="">0
+                            Comments</a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="wrap-post hover-img">
+                    <div class="images img-style">
+                        <img src="assets/images/img-box/news-3.jpg" alt="img">
+                    </div>
+                    <div class="content">
+                        <div class="sub-title text-p">01 June , 2022</div>
+                        <h4 class="text-t link-style-3"><a href="blog-details.html">different parameters like
+                            radius, orientation, opacity or color points.</a></h4>
+                        <h6 class="meta "> By <a href="#" class="user"> Admin </a> <a href="#" class="">0
+                            Comments</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+<section id="contact" class="flat-contact">
+    <div class="container-fuild">
+        <div class="row">
+            <div class="col-lg-6 col-md-5 col-sm-12">
+                <div class="row justify-content-end">
+                    <div class="col-11" style="padding: 30px;">
+                        <h3>Профессиональные навыки</h3>
+                    </div>
+                </div>
+                <ul>
+                    {% if professionalskills %}
+                        {% for item_skills in professionalskills %}
+                            <li class="prof-skils">
+                        <div class="row justify-content-end">
+                            <div class="col-1">
+                                <svg role="presentation" class=""
+                                     style="width:43px; height:43px;" fill="#1f5bff"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                    <path d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                                    <path d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="col-10">
+                                <h4>{{item_skills.title}}</h4>
+                            </div>
+                        </div>
+                    </li>
+                        {% endfor %}
+                    {% endif %}
+
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-7 col-sm-12">
+                <div class="wrap-contact">
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                    {% else %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    <div class="heading-section">
+                        <h3 class="title-section">Для связи заполните форму:</h3>
+                    </div>
+                    <div id="comments">
+                        <div id="respond" class="respond-comment">
+                            <form method="post" id="contactform" class="comment-form form-submit"
+                                  accept-charset="utf-8">
+                                {% csrf_token %}
+                                <div class="text-wrap clearfix">
+                                    <fieldset class="message-wrap">
+                                        {{ form.name }}
+                                    </fieldset>
+                                    <fieldset class="phone-wrap style-text">
+                                        {{ form.phone }}
+                                    </fieldset>
+                                </div>
+                                <fieldset class="message-wrap">
+                                    {{ form.message }}
+                                </fieldset>
+                                <fieldset class="message-wrap">
+                                    {{ form.captcha }}
+                                </fieldset>
+                                <button type="submit" class="button btn-submit-comment btn-1 btn-10">
+                                    <span>Отправить</span>
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
