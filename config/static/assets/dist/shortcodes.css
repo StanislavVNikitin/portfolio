@@ -1215,6 +1215,9 @@
 }
 .flat-portflio .wrap-portflio .box-portflio .image img {
   border-radius: 20px;
+  width: 450px;
+  height: 540px;
+  object-fit: cover;
 }
 .flat-portflio .wrap-portflio .box-portflio .post {
   padding: 0 40px;
